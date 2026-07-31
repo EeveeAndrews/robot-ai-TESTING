@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Robot Response Schema",
+    "type": "object",
+    "required": ["intent", "speech", "action", "state"],
+    "properties": {
+      "intent": { "type": "string" },
+      "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+      "speech": { "type": "string" },
+      "action": {
+        "type": ["object", "null"],
+        "required": ["action_type"],
+        "properties": {
+          "action_type": { "type": "string" },
+          "intensity": { "type": "number", "minimum": 0, "maximum": 1 },
+          "duration_seconds": { "type": "number", "minimum": 0, "maximum": 30 }
+        },
+        "additionalProperties": false
+      },
+      "state": { "type": "string" },
+      "authenticated": { "type": "boolean" },
+      "memory_update": { "type": ["object", "null"] }
+    }
+  }

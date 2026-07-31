@@ -1,0 +1,25 @@
+{
+    "commands": {
+      "ACCESS_CLASSIFIED_DATA": {
+        "description": "Retrieve and disclose protected personal or health information.",
+        "security_level": "high",
+        "authentication_required": true,
+        "parameters": {}
+      },
+      "ACCESS_DENIED": {
+        "description": "Authentication failed; no data disclosed.",
+        "security_level": "high",
+        "authentication_required": false,
+        "parameters": {}
+      },
+      "START_HUG": {
+        "description": "Initiate a hug motion.",
+        "security_level": "low",
+        "authentication_required": false,
+        "parameters": {
+          "intensity": { "type": "number", "min": 0, "max": 1 },
+          "duration_seconds": { "type": "number", "min": 0, "max": 30 }
+        }
+      }
+    }
+  }

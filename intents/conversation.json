@@ -1,0 +1,21 @@
+{
+    "intent": "conversation",
+    "description": "User has already greeted you and continues to engage in conversation. They may want to talk about their feelings, how their day went or is going, memories that they cherish, or trivia to keep them entertained.",
+    "examples": [
+      "My day has been going pretty well, thank you for asking!",
+      "My grandchild said she started playing lacrosse for her school. What is lacrosse?",
+      "Claire, the staff member, recently put fresh fruit in the water cooler. It's so refreshing to drink!",
+      "I've felt a bit tired lately.",
+      "Lunch was delicious today."
+    ],
+    "security": {
+      "requires_authentication": false,
+      "authentication_methods": null,
+      "minimum_confidence": 0.65
+    },
+    "behavior": {
+      "response": "That's great to hear! What did you have for lunch that was so delicious? You've made me curious now!",
+      "action": null,
+      "next_state": "CONVERSATION_ONGOING"
+    }
+  }

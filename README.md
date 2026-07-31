@@ -6,6 +6,8 @@ Confidence intervals, frequently listed as "minimum_confidence", must be kept as
 
 The example verification methods in response_schema.json will likely be narrowed down to one or two. An array of some viable methods are listed regardless.
 
+I should split conversation.json up into different categories, i.e., entertainment, reminiscing/memories(?), small_talk, etc. 
+
 An example of how GPT may repons with JSON given response_schema.json:
 
 User: "I'm feeling lonely."

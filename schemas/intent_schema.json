@@ -14,13 +14,17 @@
     },
     "examples": {
       "type": "array",
-      "description": "Examples of verbal user input that may indicate this intent.",
-      "items": { "type": "string" }
+      "items": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "text": { "type": "string" },
+          "topic": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
     },
-    "behavior": {
-      "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/behaviorState" }
-    },
+    "behavior": { "$ref": "#/$defs/behaviorState" },
     "security": {
       "type": "object",
       "description": "Security requirements for protected actions.",
@@ -44,21 +48,25 @@
   "$defs": {
     "behaviorState": {
       "type": "object",
-      "required": ["response", "action"],
+      "required": ["responses", "action"],
       "properties": {
-        "response": { "type": "string" },
-        "action": {
-          "type": ["object", "null"],
-          "required": ["action_type"],
-          "properties": {
-            "action_type": { "type": "string" },
-            "intensity": { "type": "number", "minimum": 0, "maximum": 1 },
-            "duration_seconds": { "type": "number", "minimum": 0, "maximum": 30 }
-          },
-          "additionalProperties": false
+        "responses": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
         },
+        "action": {
+            "type": ["object", "null"],
+            "required": ["action_type"],
+            "properties": {
+              "action_type": { "type": "string" },
+              "intensity": { "type": "number", "minimum": 0, "maximum": 1 },
+              "duration_seconds": { "type": "number", "minimum": 0, "maximum": 30 }
+            },
+            "additionalProperties": false
+          },
+          "next_state": { "type": "string" }},
         "next_state": { "type": "string" }
-      }
     }
   }
 }

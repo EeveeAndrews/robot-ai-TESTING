@@ -1,21 +1,26 @@
 {
-    "intent": "conversation",
-    "description": "User has already greeted you and continues to engage in conversation. They may want to talk about their feelings, how their day went or is going, memories that they cherish, or trivia to keep them entertained.",
-    "examples": [
-      "My day has been going pretty well, thank you for asking!",
-      "My grandchild said she started playing lacrosse for her school. What is lacrosse?",
-      "Claire, the staff member, recently put fresh fruit in the water cooler. It's so refreshing to drink!",
-      "I've felt a bit tired lately.",
-      "Lunch was delicious today."
+  "intent": "conversation",
+  "description": "User has already greeted you and continues to engage in conversation. They may want to talk about their feelings, how their day went or is going, memories that they cherish, or trivia to keep them entertained.",
+  "examples": [
+    { "text": "My day has been going pretty well, thank you for asking!", "topic": "small_talk" },
+    { "text": "My grandchild said she started playing lacrosse for her school. What is lacrosse?", "topic": "trivia" },
+    { "text": "Claire, the staff member, recently put fresh fruit in the water cooler. It's so refreshing to drink!", "topic": "small_talk" },
+    { "text": "I've felt a bit tired lately.", "topic": "small_talk" },
+    { "text": "Lunch was delicious today.", "topic": "small_talk" }
+  ],
+  "security": {
+    "requires_authentication": false,
+    "authentication_methods": null,
+    "minimum_confidence": 0.65
+  },
+  "behavior": {
+    "responses": [
+      "That's great to hear! What did you have for lunch that was so delicious?",
+      "Sounds like a good day! Tell me more about it.",
+      "I'm glad to hear that! What's been the highlight so far?",
+      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
     ],
-    "security": {
-      "requires_authentication": false,
-      "authentication_methods": null,
-      "minimum_confidence": 0.65
-    },
-    "behavior": {
-      "response": "That's great to hear! What did you have for lunch that was so delicious? You've made me curious now!",
-      "action": null,
-      "next_state": "CONVERSATION_ONGOING"
-    }
+    "action": null,
+    "next_state": "CONVERSATION_ONGOING"
   }
+}

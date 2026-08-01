@@ -1,0 +1,21 @@
+{
+  "intent": "conversation",
+  "description": "User has already greeted you and continues to engage in conversation. They may want to talk about their feelings, how their day went or is going, memories that they cherish, or trivia to keep them entertained.",
+  "examples": [
+    { "text": "My day has been going pretty well, thank you for asking!", "topic": "small_talk" },
+    { "text": "Lunch was delicious today.", "topic": "small_talk" }
+  ],
+  "security": {
+    "requires_authentication": false,
+    "authentication_methods": null,
+    "minimum_confidence": 0
+  },
+  "behavior": {
+    "responses": [
+      "That's great to hear! What did you have for lunch that was so delicious?",
+      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
+    ],
+    "action": null,
+    "next_state": "."
+  }
+}

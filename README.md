@@ -6,8 +6,6 @@ Confidence intervals, frequently listed as "minimum_confidence", must be kept as
 
 The example verification methods in response_schema.json will likely be narrowed down to one or two. An array of some viable methods are listed regardless.
 
-I should split conversation.json up into different categories, i.e., entertainment, reminiscing/memories(?), small_talk, etc. 
-
 An example of how GPT may repons with JSON given response_schema.json:
 
 User: "I'm feeling lonely."
@@ -24,13 +22,20 @@ GPT:
 
 Note to self: use pathlib for Python.
 
+Python files are located in the "engine" folder. The rest of the .json files are essentially the pieces of data and alone are not sufficient to semi-train an AI model. 
+
 
 -Intent descriptions-
 
-protected_data_access.json is inclusive of both PII (Personally Identifiable Information) and PHI (Protected Health Information) if the user has stored it to the robot.
+protected_data_access.json regards a range of subject topics inclusive of both PII (Personally Identifiable Information) and PHI (Protected Health Information) if the user has stored it to the robot.
 
-hug.json
+hug.json, as the name suggests, is an intent when the AI believes the user is requesting a hug or may want to have one. Various states are attributed to levels of uncertainty, that is, the AI will not immediately go into a hug if the user has only said "I've been feeling lonely". It will, however, move from each state to the next depending on further conversation in this scenario, ultimately ending with an execution of the hug command or a cancellation and reversion of the intent into a conversation or the end of one.
 
-greeting.json
+greeting.json is the intent when the AI believes the user is attempting to begin a conversation when one had not been taking place prior. It likely leads to the beginning of a conversation intent, but it still has the potential to abrupty trigger a farewell. 
 
-emergency.json
+conversation.json is nearly all-encompassing of any enagement with the user after a greeting has initiated and exclusive of an attempt to access protected information. "Topics" are subject to change or addition, but a few example ones present now are "trivia", "small_talk", and "entertainment". Rather than have separate .json files for each conversation topic, the one conversation.json is written accompanied by a list of possible topics the user may bring up to better guide them to one sort of answer.
+
+farewell.json is the intent once, after initiating a conversation with the AI, the user indicates they would like to end the discussion. 
+
+emergency.json is an emergency intent NOT ACCOUNTABLE for preventing injuries during any command execution. This is important because despite its existence, there should still be strong backup measures in place, such as strength limitations, in order to prevent harming the user at all costs. However, it is still very useful for reaching out for help for the user in hospital and assisted-living settings. When any indication of pain, struggle, or harm is detected by the AI, it is trained by the emergency.json file to handle it accordingly. Again, this is NOT responsible for the robot's safety protocols when engaging in a hug or other motor commands.
+

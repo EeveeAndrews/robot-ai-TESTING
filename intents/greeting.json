@@ -1,19 +1,21 @@
 {
-    "intent": "greeting",
-    "description": "User greets the robot and attempts to strike conversation.",
-    "examples": [
-      "Just got back from playing cards in the cafeteria.",
-      "Hello.",
-      "How are you doing?"
+  "intent": "greeting",
+  "description": "User greets the robot and attempts to strike conversation.",
+  "examples": [
+    { "text": "My day has been going pretty well, thank you for asking!"},
+    { "text": "Lunch was delicious today."}
+  ],
+  "security": {
+    "requires_authentication": false,
+    "authentication_methods": null,
+    "minimum_confidence": 0.8
+  },
+  "behavior": {
+    "responses": [
+      "Nice to see you! How have you been feeling lately?",
+      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
     ],
-    "security": {
-      "requires_authentication": false,
-      "authentication_methods": null,
-      "minimum_confidence": 0.7
-    },
-    "behavior": {
-      "response": "Nice to see you! How have you been feeling lately?",
-      "action": null,
-      "next_state": "CONVERSATION_ONGOING"
-    }
+    "action": null,
+    "next_state": "CONVERSATION_ONGOING"
   }
+}

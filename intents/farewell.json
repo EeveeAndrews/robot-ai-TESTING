@@ -1,26 +1,38 @@
 {
   "intent": "farewell",
-  "description": "The user is leaving or would like to end the conversation you were having.",
+  "description": "The user is leaving or would like to end the conversation. Ambiguous signals (e.g. mentions of tiredness) are confirmed before ending; explicit signals end the conversation directly.",
   "examples": [
-    { "text": "My day has been going pretty well, thank you for asking!", "topic": "small_talk" },
-    { "text": "My grandchild said she started playing lacrosse for her school. What is lacrosse?", "topic": "trivia" },
-    { "text": "Claire, the staff member, recently put fresh fruit in the water cooler. It's so refreshing to drink!", "topic": "small_talk" },
-    { "text": "I've felt a bit tired lately.", "topic": "small_talk" },
-    { "text": "Lunch was delicious today.", "topic": "small_talk" }
+    { "text": "I'm really tired...", "topic": "ambiguous" },
+    { "text": "I'm getting sleepy.", "topic": "ambiguous" },
+    { "text": "I'm going to bed. See you!", "topic": "definite" },
+    { "text": "I promised Charles I'd play cards with him in 2 minutes.", "topic": "ambiguous" },
+    { "text": "Yes, I'll be leaving now. Goodbye.", "topic": "definite" },
+    { "text": "I'm done talking for now.", "topic": "definite" }
   ],
   "security": {
     "requires_authentication": false,
     "authentication_methods": null,
-    "minimum_confidence": 0.65
+    "minimum_confidence": 0.7
   },
   "behavior": {
-    "responses": [
-      "That's great to hear! What did you have for lunch that was so delicious?",
-      "Sounds like a good day! Tell me more about it.",
-      "I'm glad to hear that! What's been the highlight so far?",
-      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
-    ],
-    "action": null,
-    "next_state": "CONVERSATION_ONGOING"
+    "ambiguous": {
+      "responses": [
+        "You sound tired. Would you like to rest now?",
+        "Sounds like you might be ready for a break. Do you want to head to sleep?",
+        "Oh! Sounds like a great idea. You wouldn't want to be late - want to say goodbye for now?"
+      ],
+      "action": null,
+      "next_state": "AWAITING_FAREWELL_CONFIRMATION"
+    },
+    "definite": {
+      "responses": [
+        "Goodnight! I'll be here when you want to talk again.",
+        "See you! Enjoy your game!",
+        "Sounds good. I'll always be here for you if you want to talk.",
+        "Take care! See you soon."
+      ],
+      "action": null,
+      "next_state": "IDLE"
+    }
   }
 }

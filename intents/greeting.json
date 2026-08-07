@@ -2,8 +2,8 @@
   "intent": "greeting",
   "description": "User greets the robot and attempts to strike conversation.",
   "examples": [
-    { "text": "My day has been going pretty well, thank you for asking!"},
-    { "text": "Lunch was delicious today."}
+    { "text": "I'm back from bingo night."},
+    { "text": "Hey! Can you hear what I'm saying right now?"}
   ],
   "security": {
     "requires_authentication": false,
@@ -13,7 +13,7 @@
   "behavior": {
     "responses": [
       "Nice to see you! How have you been feeling lately?",
-      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
+      "Yup! Loud and clear! How are you doing today?"
     ],
     "action": null,
     "next_state": "CONVERSATION_ONGOING"

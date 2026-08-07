@@ -1,21 +1,38 @@
 {
-  "intent": "conversation",
-  "description": "User has already greeted you and continues to engage in conversation. They may want to talk about their feelings, how their day went or is going, memories that they cherish, or trivia to keep them entertained.",
+  "intent": "hug",
+  "description": "User's language suggests loneliness, sadness, or affection that may indicate a desire for physical comfort. Escalates through confirmation before ever executing a hug.",
   "examples": [
-    { "text": "My day has been going pretty well, thank you for asking!", "topic": "small_talk" },
-    { "text": "Lunch was delicious today.", "topic": "small_talk" }
+    { "text": "I've been feeling kind of lonely.", "topic": "hug_signal" },
+    { "text": "I miss my family so much.", "topic": "hug_signal" },
+    { "text": "Yes, I'd like a hug.", "topic": "hug_confirm" },
+    { "text": "No, that's okay.", "topic": "hug_decline" }
   ],
   "security": {
     "requires_authentication": false,
     "authentication_methods": null,
-    "minimum_confidence": 0
+    "minimum_confidence": 0.85
   },
   "behavior": {
-    "responses": [
-      "That's great to hear! What did you have for lunch that was so delicious?",
-      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
-    ],
-    "action": null,
-    "next_state": "."
+    "suspected": {
+      "responses": [
+        "I'm sorry to hear that. Would you like a hug?"
+      ],
+      "action": null,
+      "next_state": "AWAITING_HUG_CONFIRMATION"
+    },
+    "confirmed": {
+      "responses": [
+        "Okay, here I come!"
+      ],
+      "action": { "action_type": "START_HUG", "intensity": 0.5, "duration_seconds": 5 },
+      "next_state": "CONVERSATION_ONGOING"
+    },
+    "declined": {
+      "responses": [
+        "That's okay. I'm here if you change your mind."
+      ],
+      "action": null,
+      "next_state": "CONVERSATION_ONGOING"
+    }
   }
 }

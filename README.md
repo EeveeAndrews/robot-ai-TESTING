@@ -39,3 +39,15 @@ farewell.json is the intent once, after initiating a conversation with the AI, t
 
 emergency.json is an emergency intent NOT ACCOUNTABLE for preventing injuries during any command execution. This is important because despite its existence, there should still be strong backup measures in place, such as strength limitations, in order to prevent harming the user at all costs. However, it is still very useful for reaching out for help for the user in hospital and assisted-living settings. When any indication of pain, struggle, or harm is detected by the AI, it is trained by the emergency.json file to handle it accordingly. Again, this is NOT responsible for the robot's safety protocols when engaging in a hug or other motor commands.
 
+-Prompts Description- 
+
+safety_prompt.md, as the name suggests,
+
+system_prompt.md can be though of as a brief gateway into the AI's fabricated personality. It is what it can read to get a refined understanding of itself, its purpose, and what kind of demeanor it should adapt especially when engaging in conversation with the user. 
+
+-Schemas Description-
+Before reading, schemas essentially set up the framework for the information that intent .json files provide and what kind of output the module should give after processing user-input. Combined with schemas, the AI will understand the data type of certain variables I have chosed. For example, "description" is set up in the schema to be a string datatype and it is defined as a brief summary of an intent.
+
+intent_schema.json tells the AI how to comprehend the intent files. As explained earlier, the "description" is a value present in each intent .json file, and this schema's job is to not only give a corresponding data type to this variable but also define it simply for the AI to digest.
+
+response_schema.json, on the other hand, is the framework for how the AI will create output. This could include a command, speech in the form of a string, or a mix of the two. Additionally, it gives the module a chance to update memories, provide a confidence interval (see earlier definition), change its current state (i.e., conversation to idle), and a few other actions after it has processed BOTH user-input and the intent.json files we have provided for it to understand its purpose.

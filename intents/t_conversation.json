@@ -1,12 +1,13 @@
 {
   "intent": "conversation",
-  "description": "User has already greeted you and continues to engage in conversation. They may want to talk about their feelings, how their day went or is going, memories that they cherish, or trivia to keep them entertained.",
+  "description": "User has already greeted you and continues to engage in conversation. Topic determines which response pool is used.",
   "examples": [
     { "text": "My day has been going pretty well, thank you for asking!", "topic": "small_talk" },
-    { "text": "My grandchild said she started playing lacrosse for her school. What is lacrosse?", "topic": "trivia" },
     { "text": "Claire, the staff member, recently put fresh fruit in the water cooler. It's so refreshing to drink!", "topic": "small_talk" },
-    { "text": "I've felt a bit tired lately.", "topic": "small_talk" },
-    { "text": "Lunch was delicious today.", "topic": "small_talk" }
+    { "text": "Lunch was delicious today.", "topic": "small_talk" },
+    { "text": "My grandchild said she started playing lacrosse for her school. What is lacrosse?", "topic": "trivia" },
+    { "text": "I've been feeling kind of lonely.", "topic": "emotional_support" },
+    { "text": "I miss my family so much.", "topic": "emotional_support" }
   ],
   "security": {
     "requires_authentication": false,
@@ -14,13 +15,28 @@
     "minimum_confidence": 0.65
   },
   "behavior": {
-    "responses": [
-      "That's great to hear! What did you have for lunch that was so delicious?",
-      "Sounds like a good day! Tell me more about it.",
-      "I'm glad to hear that! What's been the highlight so far?",
-      "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
-    ],
-    "action": null,
-    "next_state": "CONVERSATION_ONGOING"
+    "small_talk": {
+      "responses": [
+        "That's great to hear! Tell me more.",
+        "Sounds like a good day! Tell me more about it.",
+        "I'm glad to hear that! What's been the highlight so far?"
+      ],
+      "action": null,
+      "next_state": "CONVERSATION_ONGOING"
+    },
+    "trivia": {
+      "responses": [
+        "Ooo, good question! Lacrosse is an outdoor team sport where two teams use long-handled sticks with netted pouches to catch, carry, and throw a rubber ball into the opposing team's goal!"
+      ],
+      "action": null,
+      "next_state": "CONVERSATION_ONGOING"
+    },
+    "emotional_support": {
+      "responses": [
+        "I'm sorry you're feeling that way. I'm here if you'd like to talk about it."
+      ],
+      "action": null,
+      "next_state": "CONVERSATION_ONGOING"
+    }
   }
 }

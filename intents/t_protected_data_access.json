@@ -1,37 +1,23 @@
 {
-    "intent": "classified_access",
-    "description": "User requests to access protected personal information, such as Personal Identifiable Information or Protected Health Information.",
-    "examples": [
-      "Can I see my medical information?",
-      "Open my private files.",
-      "Access my account information.",
-      "Where do I live again?",
-      "Is it true I have diagnosed dementia?"
-    ],
-    "security": {
-      "requires_authentication": true,
-      "authentication_methods": ["voice_recognition", "facial_recognition"],
-      "minimum_confidence": 0.85
-    },
-    "behavior": {
-      "request": {
-        "response": "I can help with that. I'll need to verify your identity first.",
-        "action": null,
-        "next_state": "AUTHENTICATION_REQUIRED"
-      },
-      "authenticated": {
-        "response": "__RETRIEVED_FROM_MEMORY__",
-        "action": {
-          "action_type": "ACCESS_CLASSIFIED_DATA"
-        },
-        "next_state": "ACCESS_GRANTED"
-      },
-      "failed_authentication": {
-        "response": "I'm sorry, I could not verify your identity. I cannot access your information at this time.",
-        "action": {
-          "action_type": "ACCESS_DENIED"
-        },
-        "next_state": "CONVERSATION_ONGOING"
-      }
+  "intent": "classified_access",
+  "description": "User requests to access protected personal information, such as PII or PHI.",
+  "examples": [
+    { "text": "Can I see my medical information?", "topic": "phi" },
+    { "text": "Open my private files.", "topic": "pii" },
+    { "text": "Access my account information.", "topic": "pii" },
+    { "text": "Where do I live again?", "topic": "pii" },
+    { "text": "Is it true I have diagnosed dementia?", "topic": "phi" }
+  ],
+  "security": {
+    "requires_authentication": true,
+    "authentication_methods": ["voice_recognition", "facial_recognition"],
+    "minimum_confidence": 0.8
+  },
+  "behavior": {
+    "request": {
+      "responses": ["I'm sorry, I could not verify your identity. I cannot access your information at this time."],
+      "action": null,
+      "next_state": "CONVERSATION_ONGOING"
     }
   }
+}

@@ -1,11 +1,10 @@
 {
   "intent": "hug",
-  "description": "User's language suggests loneliness, sadness, or affection that may indicate a desire for physical comfort. Escalates through confirmation before ever executing a hug.",
+  "description": "User directly asks for a hug. No confirmation step -- an explicit request triggers the action immediately.",
   "examples": [
-    { "text": "I've been feeling kind of lonely.", "topic": "hug_signal" },
-    { "text": "I miss my family so much.", "topic": "hug_signal" },
-    { "text": "Yes, I'd like a hug.", "topic": "hug_confirm" },
-    { "text": "No, that's okay.", "topic": "hug_decline" }
+    { "text": "Can I have a hug?" },
+    { "text": "Can you give me a hug?" },
+    { "text": "Hug me." }
   ],
   "security": {
     "requires_authentication": false,
@@ -13,26 +12,8 @@
     "minimum_confidence": 0.85
   },
   "behavior": {
-    "suspected": {
-      "responses": [
-        "I'm sorry to hear that. Would you like a hug?"
-      ],
-      "action": null,
-      "next_state": "AWAITING_HUG_CONFIRMATION"
-    },
-    "confirmed": {
-      "responses": [
-        "Okay, here I come!"
-      ],
-      "action": { "action_type": "START_HUG", "intensity": 0.5, "duration_seconds": 5 },
-      "next_state": "CONVERSATION_ONGOING"
-    },
-    "declined": {
-      "responses": [
-        "That's okay. I'm here if you change your mind."
-      ],
-      "action": null,
-      "next_state": "CONVERSATION_ONGOING"
-    }
+    "responses": ["Okay, here I come!"],
+    "action": { "action_type": "START_HUG", "intensity": 0.5, "duration_seconds": 5 },
+    "next_state": null
   }
 }

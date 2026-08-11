@@ -31,7 +31,7 @@
         "action": {
           "action_type": "ACCESS_DENIED"
         },
-        "next_state": "ACCESS_DENIED"
+        "next_state": "CONVERSATION_ONGOING"
       }
     }
   }

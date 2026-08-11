@@ -6,12 +6,6 @@
         "authentication_required": true,
         "parameters": {}
       },
-      "ACCESS_DENIED": {
-        "description": "Authentication failed; no data disclosed.",
-        "security_level": "high",
-        "authentication_required": false,
-        "parameters": {}
-      },
       "START_HUG": {
         "description": "Initiate a hug motion.",
         "security_level": "low",

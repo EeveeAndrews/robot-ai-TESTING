@@ -1,7 +1,7 @@
 {
   "commands": {
     "ACCESS_CLASSIFIED_DATA": {
-      "description": "Retrieve and disclose protected personal or health information.",
+      "description": "Retrieve and disclose protected personal or health information. As no method of verification has been implemented yet, access will ALWAYS be denied.",
       "security_level": "high",
       "authentication_required": true,
       "parameters": {}

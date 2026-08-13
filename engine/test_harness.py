@@ -1,3 +1,7 @@
+# thank you claude for helping me create this test :pensive:
+
+# type python3 -m engine.test_harness in the terminal to run
+
 import time
 from engine.t_main import process_input
 
@@ -11,7 +15,7 @@ def run():
     print("Type messages to the robot. Ctrl+C to quit.\n")
     while True:
         try:
-            user_input = input("You: ")
+            user_input = input("User: ")
         except (EOFError, KeyboardInterrupt):
             print("\nExiting.")
             break

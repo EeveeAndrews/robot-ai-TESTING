@@ -4,14 +4,17 @@ from engine.t_responder import build_response
 
 YES_PATTERN = re.compile(r"\b(yes|yeah|yep|sure|please|go ahead|okay|ok)\b", re.IGNORECASE)
 NO_PATTERN = re.compile(r"\b(no|nope|not yet|nah|don't|actually)\b", re.IGNORECASE)
-CONFIRMATION_TIMEOUT_SECONDS = 15
+
+# Was srecommended at 15, I manually set to 20 
+CONFIRMATION_TIMEOUT_SECONDS = 20
 
 
 def handle_awaiting_farewell_confirmation(user_input, state_entered_at):
     elapsed = time.time() - state_entered_at
 
     if elapsed > CONFIRMATION_TIMEOUT_SECONDS:
-        return build_response(speech=None, next_state="CONVERSATION_ONGOING", intent="farewell")
+        # Initially, next_state was "CONVERSATION_ONGOING", set to "IDLE" instead.
+        return build_response(speech=None, next_state="IDLE", intent="farewell")
 
     if YES_PATTERN.search(user_input):
         return build_response(

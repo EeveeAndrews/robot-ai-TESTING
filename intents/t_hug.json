@@ -1,6 +1,6 @@
 {
   "intent": "hug",
-  "description": "User directly asks for a hug. No confirmation step -- an explicit request triggers the action immediately.",
+  "description": "User directly asks for a hug. There is no confirmation step- an explicit request triggers the action immediately.",
   "examples": [
     { "text": "Can I have a hug?" },
     { "text": "Can you give me a hug?" },
@@ -12,7 +12,7 @@
     "minimum_confidence": 0.85
   },
   "behavior": {
-    "responses": ["Okay, here I come!"],
+    "responses": ["Of course. I'm always here for you."],
     "action": { "action_type": "START_HUG", "intensity": 0.5, "duration_seconds": 5 },
     "next_state": null
   }

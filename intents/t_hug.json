@@ -9,7 +9,7 @@
   "security": {
     "requires_authentication": false,
     "authentication_methods": null,
-    "minimum_confidence": 0.85
+    "minimum_confidence": 0.4
   },
   "behavior": {
     "responses": ["Of course. I'm always here for you."],

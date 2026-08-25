@@ -2,8 +2,17 @@
   "intent": "greeting",
   "description": "User greets the robot and attempts to strike conversation.",
   "examples": [
-    { "text": "I'm back from bingo night."},
-    { "text": "Hey! Can you hear what I'm saying right now?"}
+    { "text": "Hi." },
+    { "text": "Hello." },
+    { "text": "Hey." },
+    { "text": "Hi there." },
+    { "text": "Hello robot." },
+    { "text": "Hey robot." },
+    { "text": "Good morning." },
+    { "text": "Good afternoon." },
+    { "text": "Good evening." },
+    { "text": "I'm back from bingo night." },
+    { "text": "Hey! Can you hear what I'm saying right now?" }
   ],
   "security": {
     "requires_authentication": false,
@@ -12,8 +21,11 @@
   },
   "behavior": {
     "responses": [
-      "Nice to see you! How have you been feeling lately?",
-      "Yup! Loud and clear! How are you doing today?"
+      "Hi. I'm happy to see you.",
+      "Hello. I'm here with you.",
+      "Hey. It's nice to hear your voice.",
+      "Nice to see you. How are you doing today?",
+      "Yup, I can hear you."
     ],
     "action": null,
     "next_state": "CONVERSATION_ONGOING"

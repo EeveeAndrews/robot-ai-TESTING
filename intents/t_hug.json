@@ -14,7 +14,7 @@
   "security": {
     "requires_authentication": false,
     "authentication_methods": null,
-    "minimum_confidence": 0.4
+    "minimum_confidence": 0.6
   },
   "behavior": {
     "responses": [

@@ -8,7 +8,7 @@
   "security": {
     "requires_authentication": false,
     "authentication_methods": null,
-    "minimum_confidence": 0.8
+    "minimum_confidence": 0.4
   },
   "behavior": {
     "responses": [

@@ -4,7 +4,12 @@
   "examples": [
     { "text": "Can I have a hug?" },
     { "text": "Can you give me a hug?" },
-    { "text": "Hug me." }
+    { "text": "Hug me." },
+    { "text": "I want a hug." },
+    { "text": "I need a hug." },
+    { "text": "Could you hug me?" },
+    { "text": "Please give me a hug." },
+    { "text": "Can we hug?" }
   ],
   "security": {
     "requires_authentication": false,
@@ -12,7 +17,11 @@
     "minimum_confidence": 0.4
   },
   "behavior": {
-    "responses": ["Of course. I'm always here for you."],
+    "responses": [
+      "Of course. I'm always here for you.",
+      "Of course. I can give you a hug.",
+      "I'm here. Starting a hug now."
+    ],
     "action": { "action_type": "START_HUG", "intensity": 0.5, "duration_seconds": 5 },
     "next_state": null
   }
